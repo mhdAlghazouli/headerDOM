@@ -5,17 +5,19 @@ function makeEle (element) {
   return makeElement;
 }
 
-const links = {
+const headerEle = {
+  logo : `hello`,
   link : ["home","categories"]
 };
 
-function createHeaderElements (links) {
+function createHeaderElements (someData) {
+  const header = makeEle('div');
   const h1 = makeEle("h1");
-  h1.textContent = `hello`;
-  container.appendChild(h1);
+  h1.textContent = headerEle.logo;
+  header.appendChild(h1);
   const ul = makeEle("ul");
 
-  links.link.forEach(element => {
+  someData.link.forEach(element => {
     const li = makeEle("li");
     console.log(li)
     const aLinks = makeEle("a");
@@ -23,10 +25,13 @@ function createHeaderElements (links) {
     aLinks.textContent = element;
     li.appendChild(aLinks);
     ul.appendChild(li);
+    header.appendChild(ul);
   });
 
-  return ul;
+  return header;
 
 };
 
-container.appendChild(createHeaderElements(links));
+
+
+container.appendChild(createHeaderElements(headerEle));
